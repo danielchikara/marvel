@@ -1,0 +1,5 @@
+data.json
+
+index/__pycache__/*
+index/migrations/__pycache__/*
+marvel/__pycache__/*

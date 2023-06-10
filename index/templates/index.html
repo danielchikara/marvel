@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- Aquí puedes agregar el contenido específico de la página de inicio -->
+<main>
+
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for comic in comics %}
+                    <div class="col">
+                        <div class="card shadow-sm h-100">
+                            <img class="card-img-top object-fit-cover" src="{{comic.thumbnail}}" alt="Card image cap" width="100%" height="300">
+                            
+                            <div class="card-body">
+                                <p class="card-text">{{comic.title}}</p>
+                                <p class="card-text">
+                                    {% for creator in comic.comic_creators.all %}
+                                   
+                                        {{creator.name}}, 
+                                   
+                                    {% endfor %}
+                                 </p>
+                                 <p class="card-text">{{comic.series}}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                                    </div>
+                                    <small class="text-body-secondary">{{comic.date}}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</main>
+{% endblock %}
