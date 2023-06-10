@@ -21,4 +21,4 @@ class Creators(models.Model):
     role = models.CharField(max_length=160)
 
     def __str__(self) -> str:
-        return self.role
+        return self.name
